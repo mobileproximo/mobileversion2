@@ -1,0 +1,16 @@
+<ion-header>
+<headerComp ></headerComp>
+</ion-header>
+
+<ion-content padding>
+  <div class="p-container padding-bottom">
+    <div class="p-box padding">
+      <a *ngFor="let page of pages" (click)="verspage(page)" >
+        <img class="p-box-img encaissement" [src]="page.src" [alt]="page.title">
+        <span class="p-box-title">{{page.title}}</span>
+      </a>
+
+    </div>
+    <div proxi-scroll></div>
+  </div>
+</ion-content>
