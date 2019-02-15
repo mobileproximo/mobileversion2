@@ -10,11 +10,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalvariableProvider {
  public IMAGE_BASE_URL="assets/imgs/";
-// public BASEURL = "https://atps93.dyndns.org:19670/";
- public BASEURL = "http://192.168.0.93/atpswebservice/proximo/";
+//public BASEURL = "https://atps93.dyndns.org:19670/";
+public BASEURL = "https://mobile.atps.sn:19660/";
+ //public BASEURL = "http://192.168.0.93/atpswebservice/proximo/";
  public IDPART = "";
  public IDSESS = "";
  public IDTERM = "";
+ public ISCONNECTED:boolean=true;
  public HEADER:any ={agence:'cp10105',montant:'10 000',numcompte:'',consomme:''}
  public HEADERTITELE ={title:'',src:''}
  public recu :any;

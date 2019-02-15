@@ -19,7 +19,7 @@ export class TransfertPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public glb:GlobalvariableProvider) {
     this.transferts =[
       {service:'proxicash',img:glb.IMAGE_BASE_URL+'logo_Proxicash.png',component:ProxicashPage},
-      {service:'proxicash',img:glb.IMAGE_BASE_URL+'logo_Proxicash.png',component:ProxicashTransfertPage},
+     // {service:'proxicash',img:glb.IMAGE_BASE_URL+'logo_Proxicash.png',component:ProxicashTransfertPage},
       {service:'joni',img:glb.IMAGE_BASE_URL+'logo_Joni Joni.png',component:JoniPage},
       {service:'ria',img:glb.IMAGE_BASE_URL+'logo_Ria.png',component:RiaPage}
     ]

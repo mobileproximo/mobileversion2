@@ -1,5 +1,7 @@
 {
   "name": "proximov2",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

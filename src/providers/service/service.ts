@@ -45,14 +45,22 @@ export class ServiceProvider {
   }
 
   posts(service: string, body: any = {}, headers: any = {}): any {
+    if(!this.glb.ISCONNECTED)
+    {
+      this.showToast("Veuillez revoir votre connexion internet !");
+      this.dismissloadin();
+      return;
+    }
+    else{
+      let url = this.CONST.BASEURL+service;
+      console.log(headers);
+      console.log(url);
+      console.log(body);
+      this.http.setDataSerializer("json");
+      this.http.setSSLCertMode("nocheck");
+      return this.http.post(url, body, headers);
+    }
 
-    let url = this.CONST.BASEURL+service;
-    console.log(headers);
-    console.log(url);
-    console.log(body);
-    this.http.setDataSerializer("json");
-    this.http.setSSLCertMode("nocheck");
-    return this.http.post(url, body, headers);
   }
 
   rechercheperiph() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController,  Platform} from 'ionic-angular';
 import {EncaissementPage} from "../encaissement/encaissement";
 import {TransfertPage} from "../transfert/transfert";
 import {MonnaiePage} from "../monnaie/monnaie";
@@ -7,6 +7,7 @@ import {GlobalvariableProvider} from "../../providers/globalvariable/globalvaria
 import {ComptePage} from "../compte/compte";
 import {GestionPage} from "../gestion/gestion";
 import {RechargePage} from "../recharge/recharge";
+import {SplashScreen} from "@ionic-native/splash-screen";
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ import {RechargePage} from "../recharge/recharge";
 export class HomePage {
   private pages :any;
 
-  constructor(public navCtrl: NavController,public Glb:GlobalvariableProvider) {
+  constructor(private splashScreen:SplashScreen,private platform:Platform,public navCtrl: NavController,public Glb:GlobalvariableProvider) {
     this.pages = [
       { title: 'Paiement Factures', component: EncaissementPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-04.png' },
       { title: "Transfert d'argent", component: TransfertPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-03.png' },
@@ -32,5 +33,11 @@ export class HomePage {
     this.navCtrl.push(page.component);
 
   }
+
+  ionViewDidLoad() {
+    this.platform.ready().then(()=>{
+      this.splashScreen.hide();
+
+    });  }
 
 }

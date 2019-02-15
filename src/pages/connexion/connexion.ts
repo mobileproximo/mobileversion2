@@ -8,6 +8,7 @@ import {Sim} from "@ionic-native/sim";
 import {LowerCasePipe} from "@angular/common";
 import {MillierPipe} from "../../pipes/millier/millier";
 import {SplashScreen} from "@ionic-native/splash-screen";
+import {OneSignal} from "@ionic-native/onesignal";
 
 /**
  * Generated class for the ConnexionPage page.
@@ -26,7 +27,7 @@ export class ConnexionPage {
   private type:string="password";
   selectedImp:any;
 
-  constructor(private menu: MenuController,public number:MillierPipe,public lower:LowerCasePipe,private sim: Sim,public glb:GlobalvariableProvider,public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public formBuilder:FormBuilder,public serv:ServiceProvider) {
+  constructor(private oneSignal:OneSignal,private menu: MenuController,public number:MillierPipe,public lower:LowerCasePipe,private sim: Sim,public glb:GlobalvariableProvider,public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public formBuilder:FormBuilder,public serv:ServiceProvider) {
     this.Userdata = this.formBuilder.group({
       login: ['', Validators.required],
       password: ['', Validators.required],
@@ -95,12 +96,16 @@ s
               }
               else this.Userdata.controls['idSim1'].setValue(info.simSerialNumber);
             }
+            this.oneSignal.sendTags({imei:this.Userdata.controls['imei'].value,
+              numsim1:this.Userdata.controls['idSim1'].value,
+              numsim2:this.Userdata.controls['idSim2'].value,
+            });
             this.serv.afficheloading();
             this.serv.posts('connexion/conn.php',this.Userdata.getRawValue(),{}).then(data=>{
 
               let reponse = JSON.parse(data.data);
+              //alert("Connexion "+JSON.stringify(reponse));
               if(reponse.returnCode=='0'){
-                //  alert("Connexion "+JSON.stringify(reponse));
                   this.glb.HEADER.agence=reponse.agence;
                   this.glb.IDPART = reponse.idPartn;
                   this.glb.IDSESS = reponse.idSession;
@@ -109,6 +114,8 @@ s
                     this.serv.dismissloadin();
                     let plafond = JSON.parse(data.data);
                     if(plafond.returnCode=='0'){
+                      this.oneSignal.sendTags({codeespace:this.glb.HEADER.agence});
+
                       this.glb.HEADER.montant = this.number.transform(plafond.mntPlf);
                       this.glb.HEADER.numcompte = plafond.numcompte;
                       this.glb.HEADER.consomme = this.number.transform(plafond.consome)
@@ -128,7 +135,7 @@ s
               }
             }).catch(error=>{
               this.serv.dismissloadin();
-              this.serv.showError("Impossible d'atteindre le serveur "+JSON.stringify(error));
+              this.serv.showError("Impossible d'atteindre le serveur ");
 
             })
 

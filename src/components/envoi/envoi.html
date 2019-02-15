@@ -54,7 +54,10 @@
       <div *ngIf="dataenvoi.oper=='0080'" >
 
          <div class="field">
+<!--
            <ion-auto-complete style="width: 100%" id="pays" (itemSelected)="getIndicatif($event)" [options]="{placeholder:'Pays de Naissance'}" [dataProvider]="paysServ"  ></ion-auto-complete>
+-->
+           <ion-auto-complete style="width: 100%" id="pays" (itemSelected)="getIndicatif($event)" ></ion-auto-complete>
             <label for="pays" floating="" style="width: 100% !important;">Pays de Naissance</label>
           </div>
         <div class="field">

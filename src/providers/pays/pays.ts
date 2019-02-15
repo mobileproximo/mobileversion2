@@ -27,7 +27,7 @@ export class PaysProvider implements AutoCompleteService{
 /*  getResults(term: any): any {
   }*/
   getResults(keyword:string) {
-    return this.http.get("https://restcountries.eu/rest/v1/name/"+keyword)
+    return this.http.get("https://restcountries.eu/rest/v2/name/"+keyword)
       .map(
         result =>
         {
@@ -37,3 +37,9 @@ export class PaysProvider implements AutoCompleteService{
   }
 
 }
+
+
+
+
+
+

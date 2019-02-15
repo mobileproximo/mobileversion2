@@ -17,9 +17,12 @@ import { RecuEncaissementComponent } from './recu-encaissement/recu-encaissement
 import { RecuWoyofalComponent } from './recu-woyofal/recu-woyofal';
 import { RecuC2aComponent } from './recu-c2a/recu-c2a';
 import { EncaissementReleveComponent } from './encaissement-releve/encaissement-releve';
+import { MessageComponent } from './message/message';
+import { PubliciteComponent } from './publicite/publicite';
 
 @NgModule({
-	declarations: [/*HeaderComponent,
+	declarations: [MessageComponent,
+    PubliciteComponent/*HeaderComponent,
     HeaderTitleComponent,
     ReceptionComponent,
     EnvoiComponent,
@@ -40,7 +43,8 @@ import { EncaissementReleveComponent } from './encaissement-releve/encaissement-
 
   ],
 	imports: [],
-	exports: [
+	exports: [MessageComponent,
+    PubliciteComponent
 /*	  HeaderComponent,
     HeaderTitleComponent,
     ReceptionComponent,
