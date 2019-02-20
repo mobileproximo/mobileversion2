@@ -21,8 +21,8 @@ import { MessageComponent } from './message/message';
 import { PubliciteComponent } from './publicite/publicite';
 
 @NgModule({
-	declarations: [MessageComponent,
-    PubliciteComponent/*HeaderComponent,
+	declarations: [/*MessageComponent,
+    PubliciteComponentHeaderComponent,
     HeaderTitleComponent,
     ReceptionComponent,
     EnvoiComponent,
@@ -43,9 +43,9 @@ import { PubliciteComponent } from './publicite/publicite';
 
   ],
 	imports: [],
-	exports: [MessageComponent,
+	exports: [/*MessageComponent,
     PubliciteComponent
-/*	  HeaderComponent,
+	  HeaderComponent,
     HeaderTitleComponent,
     ReceptionComponent,
     EnvoiComponent,
