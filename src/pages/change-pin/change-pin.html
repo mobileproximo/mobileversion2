@@ -10,7 +10,7 @@
         <fieldset>
           <legend style="text-transform: inherit">Information</legend>
           <div class="field">
-            <input type="text" formControlName="login"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="login" placeholder="Identifiant" >
+            <input type="text" formControlName="login" (change)="lowercase()"   style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="login" placeholder="Identifiant" >
             <label for="login" style="width: 100% !important;">Identifiant</label>
           </div>
           <div class="field">

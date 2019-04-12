@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalvariableProvider} from "../../providers/globalvariable/globalvariable";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ServiceProvider} from "../../providers/service/service";
+import { LowerCasePipe } from '@angular/common';
 
 
 @IonicPage()
@@ -16,10 +17,10 @@ export class ChangePasswordPage {
   private typeconf:string="password";
   private Userdata : FormGroup;
   private message:string;
-  private conf:boolean=true;
+  private confirmation:boolean=true;
 
 
-  constructor(public serv:ServiceProvider,public formBuilder:FormBuilder,public glb:GlobalvariableProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public serv:ServiceProvider,public lower:LowerCasePipe,public formBuilder:FormBuilder,public glb:GlobalvariableProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.Userdata = this.formBuilder.group({
       login: ['', Validators.required],
       newpwd: ['', Validators.required],
@@ -52,11 +53,15 @@ export class ChangePasswordPage {
       this.typenouv ="password";
     }, 5000);
   }
+  lowercase(){
+    this.Userdata.controls['login'].setValue(this.lower.transform(this.Userdata.controls['login'].value))
+   }
   changeMotDePasse(){
     let parametre:any={};
     parametre.datapass = this.Userdata.getRawValue();
     parametre.session =this.glb.IDSESS;
     parametre.idTerm = this.glb.IDTERM;
+    parametre.idPartn = this.glb.IDPART;
     this.serv.afficheloading();
     this.serv.posts('connexion/changepass.php',parametre,{}).then(data=>{
       this.serv.dismissloadin();
@@ -68,12 +73,14 @@ export class ChangePasswordPage {
       else this.serv.showError(reponse.errorLabel)
     }).catch(err=>{
       this.serv.dismissloadin();
-      this.serv.showError("Impossible d'atteindre le serveur")
+      this.serv.showError("Impossible d'atteindre le serveur "+JSON.stringify(err))
     })
 
   }
   verifconformite(){
-    this.conf = this.Userdata.controls['newpwd'].value == this.Userdata.controls['conf'].value
+    console.log("nouveau paswd "+this.Userdata.controls['newpwd'].value)
+    console.log("conf  paswd "+this.Userdata.controls['conf'].value)
+    this.confirmation = this.Userdata.controls['newpwd'].value == this.Userdata.controls['conf'].value
   }
 
 }

@@ -75,7 +75,7 @@ s
    this.Userdata.controls['login'].setValue(this.lower.transform(this.Userdata.controls['login'].value))
   }
   connecter(){
-
+  //  this.navCtrl.setRoot(HomePage);
 
     this.sim.requestReadPermission().then(
       () => {
@@ -104,7 +104,8 @@ s
             this.serv.posts('connexion/conn.php',this.Userdata.getRawValue(),{}).then(data=>{
 
               let reponse = JSON.parse(data.data);
-              //alert("Connexion "+JSON.stringify(reponse));
+              console.log(JSON.stringify(reponse))
+             // alert("Connexion "+JSON.stringify(reponse));
               if(reponse.returnCode=='0'){
                   this.glb.HEADER.agence=reponse.agence;
                   this.glb.IDPART = reponse.idPartn;
@@ -113,9 +114,10 @@ s
                   this.serv.getplafond().then(data=>{
                     this.serv.dismissloadin();
                     let plafond = JSON.parse(data.data);
+                    //alert("Connexion "+JSON.stringify(plafond))
                     if(plafond.returnCode=='0'){
-                      this.oneSignal.sendTags({codeespace:this.glb.HEADER.agence});
 
+                      this.oneSignal.sendTags({codeespace:this.glb.HEADER.agence});
                       this.glb.HEADER.montant = this.number.transform(plafond.mntPlf);
                       this.glb.HEADER.numcompte = plafond.numcompte;
                       this.glb.HEADER.consomme = this.number.transform(plafond.consome)
@@ -124,7 +126,7 @@ s
 
                 }).catch(error=>{
                     this.serv.dismissloadin();
-                    this.serv.showError("Impossible d'atteindre le serveur");
+                    this.serv.showError("Impossible d'atteindre le serveur ");
 
                 })
 
@@ -145,7 +147,7 @@ s
         );
       },
       () => this.serv.showError("Vous devez activer les autorisations")
-    )
+    ) 
 
   }
 

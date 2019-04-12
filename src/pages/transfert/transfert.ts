@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalvariableProvider} from "../../providers/globalvariable/globalvariable";
 import {ProxicashPage} from "./proxicash/proxicash";
-import {JoniPage} from "./joni/joni";
 import {RiaPage} from "./ria/ria";
 import {ProxicashTransfertPage} from "../proxicash-transfert/proxicash-transfert";
 
@@ -20,7 +19,6 @@ export class TransfertPage {
     this.transferts =[
       {service:'proxicash',img:glb.IMAGE_BASE_URL+'logo_Proxicash.png',component:ProxicashPage},
      // {service:'proxicash',img:glb.IMAGE_BASE_URL+'logo_Proxicash.png',component:ProxicashTransfertPage},
-      {service:'joni',img:glb.IMAGE_BASE_URL+'logo_Joni Joni.png',component:JoniPage},
       {service:'ria',img:glb.IMAGE_BASE_URL+'logo_Ria.png',component:RiaPage}
     ]
   }

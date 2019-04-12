@@ -23,7 +23,6 @@ import {EncSdePage} from "../pages/encaissement/enc-sde/enc-sde";
 import {EncWoyofalPage} from "../pages/encaissement/enc-woyofal/enc-woyofal";
 import {RiaPage} from "../pages/transfert/ria/ria";
 import {ProxicashPage} from "../pages/transfert/proxicash/proxicash";
-import {JoniPage} from "../pages/transfert/joni/joni";
 import {ReceptionComponent} from "../components/reception/reception";
 import {EnvoiComponent} from "../components/envoi/envoi";
 import {ScrollComponent} from "../components/scroll/scroll";
@@ -103,7 +102,6 @@ registerLocaleData(localeFr);
     EncWoyofalPage,
     RiaPage,
     ProxicashPage,
-    JoniPage,
     ReceptionComponent,EnvoiComponent,ScrollComponent,RechargeComponent,PubliciteComponent,
     CashoutomComponent,CashoutEmoneyComponent,RetraitCompteComponent,CashoutPostcashComponent,MessageComponent,
     OrangePage,
@@ -145,7 +143,6 @@ registerLocaleData(localeFr);
     EncWoyofalPage,
     RiaPage,
     ProxicashPage,
-    JoniPage,
     ReceptionComponent,EnvoiComponent,MessageComponent,PubliciteComponent,
     OrangePage,
     IziPage,

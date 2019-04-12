@@ -127,7 +127,7 @@ private motifs;
 
       }).catch(err=>{
         this.envServ.dismissloadin();
-        this.envServ.showError("iùpossible d'atteindre le serveur");
+        this.envServ.showError("impossible d'atteindre le serveur");
       })
     }).catch(err=>{
 

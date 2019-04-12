@@ -33,11 +33,18 @@ export class HomePage {
     this.navCtrl.push(page.component);
 
   }
+  ionViewDidEnter(){
+    setTimeout(() => {
+      if(this.platform.is('cordova')  || this.platform.is('android')){
+      this.splashScreen.hide();
+      }
+    }, 100);
+  }
 
   ionViewDidLoad() {
-    this.platform.ready().then(()=>{
+     this.platform.ready().then(()=>{
       this.splashScreen.hide();
 
-    });  }
+    });   }
 
 }

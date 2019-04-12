@@ -1,8 +1,8 @@
+import { PipesModule } from './../../pipes/pipes.module';
 import { Injectable } from '@angular/core';
 import {ServiceProvider} from "../service/service";
 import {GlobalvariableProvider} from "../globalvariable/globalvariable";
 import {MillierPipe} from "../../pipes/millier/millier";
-
 
 @Injectable()
 export class RechargeProvider {
@@ -25,8 +25,9 @@ export class RechargeProvider {
         parametres.recharge.frais = parametres.recharge.frais.replace(/ /g, "");
       parametres.idTerm = this.glb.IDTERM;
       parametres.session = this.glb.IDSESS;
-
+      this.serv.afficheloading();
       this.serv.posts('recharge/recharge.php',parametres,{}).then(data=>{
+        this.serv.dismissloadin();
         let reponse = JSON.parse(data.data);
         if(reponse.returnCode=='0'){
           this.glb.recu=reponse;
@@ -42,6 +43,7 @@ export class RechargeProvider {
         }
         else this.serv.showError(reponse.errorLabel)
       }).catch(err=>{
+        this.serv.dismissloadin();
         this.serv.showError("Impossible d'atteindre le serveur");
 
       })

@@ -1,3 +1,4 @@
+import { RechargePage } from './../pages/recharge/recharge';
 import {Component, ViewChild} from '@angular/core';
 import {MenuController, ModalController, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,7 +31,7 @@ export class MyApp {
       { title: 'Acceuil', component: HomePage,src:this.Glb.IMAGE_BASE_URL+'Icon-08.png' },
       { title: 'Paiement Factures', component: EncaissementPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-04.png' },
       { title: "Transfert d'argent", component: TransfertPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-03.png' },
-      { title: "Recharge electronique", component: TransfertPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-02.png' },
+      { title: "Recharge", component: RechargePage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-02.png' },
       { title: 'Monnaie electronique', component: MonnaiePage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-05.png' },
       { title: 'Compte', component: ComptePage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-07.png' },
       { title: 'Gestion', component: GestionPage,src:this.Glb.IMAGE_BASE_URL+'Petite-Icon-06.png.png' },
@@ -38,9 +39,12 @@ export class MyApp {
       { title: 'Deconnexion', component: ConnexionPage,src:this.Glb.IMAGE_BASE_URL+'Icon-13.png' }
 
     ];
-    this.checkNetwork();
 
     platform.ready().then(() => {
+      statusBar.styleDefault();
+   
+      this.splashScreen.hide();
+
       this.checkNetwork();
 
       var gestionNotification = function(jsonData) {
@@ -50,7 +54,6 @@ export class MyApp {
         else
           compteFact.affichealert($rootScope.notification.body);*/
       };
-      statusBar.styleDefault();
       this.oneSignal.startInit('0283c2b3-d313-4eba-80ef-2ed2b6c89fde', '591653617837');
 
       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
@@ -73,12 +76,12 @@ export class MyApp {
     else this.nav.push(page.component);
   }
   initializeApp() {
-    this.platform.ready().then(() => {
+/*     this.platform.ready().then(() => {
       // do whatever you need to do here.
-/*      setTimeout(() => {
+      setTimeout(() => {
         this.splashScreen.hide();
-      }, 100);*/
-    });
+      }, 100);
+    }); */
   }
   checkNetwork(){
     this.network.onDisconnect().subscribe(() => {

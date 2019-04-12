@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ServiceProvider} from "../../providers/service/service";
 import {GlobalvariableProvider} from "../../providers/globalvariable/globalvariable";
+import { LowerCasePipe } from '@angular/common';
 
 /**
  * Generated class for the ChangePinPage page.
@@ -26,7 +27,7 @@ export class ChangePinPage {
   private conf:boolean=true;
 
 
-  constructor(public serv:ServiceProvider,public formBuilder:FormBuilder,public glb:GlobalvariableProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public serv:ServiceProvider,public lower:LowerCasePipe,public formBuilder:FormBuilder,public glb:GlobalvariableProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.Userdata = this.formBuilder.group({
       login: ['', Validators.required],
       pwd: ['', Validators.required],
@@ -42,6 +43,9 @@ export class ChangePinPage {
     this.glb.HEADERTITELE.title = "Changement Mot de Pin";
     console.log('ionViewDidLoad ChangePasswordPage');
   }
+  lowercase(){
+    this.Userdata.controls['login'].setValue(this.lower.transform(this.Userdata.controls['login'].value))
+   }
   affichemdpanc(){
     this.typeanc="text";
     setTimeout(() => {
@@ -71,6 +75,7 @@ export class ChangePinPage {
     parametre.datapin = this.Userdata.getRawValue();
     parametre.session =this.glb.IDSESS;
     parametre.idTerm = this.glb.IDTERM;
+    parametre.idPartn = this.glb.IDPART;
     this.serv.afficheloading();
     this.serv.posts('connexion/changepin.php',parametre,{}).then(data=>{
       this.serv.dismissloadin();
