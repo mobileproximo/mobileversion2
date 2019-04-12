@@ -12,7 +12,7 @@ export class RechargeProvider {
   }
 
   recharger(datarecharge){
-    //alert('datarecharge '+JSON.stringify(datarecharge));
+
     this.serv.saisiecodepin(datarecharge).then(data=>{
       let values:any =data;
       datarecharge.recharge.pin= values.pin;
