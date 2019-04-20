@@ -11,9 +11,9 @@ import { Injectable } from '@angular/core';
 export class GlobalvariableProvider {
  public IMAGE_BASE_URL                 = "assets/imgs/";
  //  public BASEURL                    = "https://atps93.dyndns.org:19670/";
-  public BASEURL                    = "https://mobile.atps.sn:19660/";
+ public BASEURL                        = "https://mobile.atps.sn:19660/";
  // public BASEURL                     = "https://proximo.dyndns.org:19670/";
-//  public BASEURL                        = "http://192.168.0.93/atpswebservice/proximo/";
+ //  public BASEURL                    = "http://192.168.0.93/atpswebservice/proximo/";
  public IDPART                         = "";
  public IDSESS                         = "";
  public IDTERM                         = "";
