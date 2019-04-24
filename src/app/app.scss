@@ -148,3 +148,9 @@ input:focus + label {
   border-bottom: solid #fd971f !important;
   width: 100% !important;
 }
+input[type="text"], input[type="tel"], input[type="password"] {
+  background: transparent !important;
+}
+ion-item{
+  background: transparent !important;
+}
