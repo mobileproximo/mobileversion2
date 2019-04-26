@@ -51,7 +51,7 @@ export class ConnexionPage {
     // If you have more than one side menu, use the id like below
     // this.menu.swipeEnable(true, 'menu1');
   }
-s
+
   chercherimprimante(){
     if(this.glb.statusImpriamte==true){
       //this.GblVariable.statusImpriamte=false
