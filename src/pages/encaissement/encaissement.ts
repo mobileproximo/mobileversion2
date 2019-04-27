@@ -21,7 +21,7 @@ export class EncaissementPage {
   public encaissements;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public glb:GlobalvariableProvider) {
-    this.encaissements =[{service:'senelec',img:glb.IMAGE_BASE_URL+'Petite-Icon-24.png',component:EncSenelecPage},
+    this.encaissements =[//{service:'senelec',img:glb.IMAGE_BASE_URL+'Petite-Icon-24.png',component:EncSenelecPage},
                          {service:'woyofal',img:glb.IMAGE_BASE_URL+'logo_Woyofal.png',component:EncWoyofalPage},
                          {service:'sde',img:glb.IMAGE_BASE_URL+'Logo_SDE.PNG',component:EncSdePage}
                          ]
