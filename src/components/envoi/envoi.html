@@ -6,14 +6,14 @@
         <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="montant" id="montant" placeholder="Montant">
         <label for="montant" style="width: 100% !important;">Montant</label>
       </div>
-      <div *ngIf="dataenvoi.oper=='0052'">
+<!--       <div *ngIf="dataenvoi.oper=='0052'">
         <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px;margin-bottom: 25px; " >
           <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Destination</ion-label>
           <ion-select formControlName="idville" interface="popover">
             <ion-option value="{{lieux.idville}}" *ngFor="let lieux of dataenvoi.lieux;">{{lieux.nomville}}</ion-option>
           </ion-select>
         </ion-item>
-      </div>
+      </div> -->
 
       <div class="field">
         <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="frais" readonly formControlName="mntTarif" placeholder="prenomBen">
@@ -113,15 +113,15 @@
     <fieldset>
       <legend>Info bénéficiaire</legend>
       <div class="field">
-        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pnomb" formControlName="prenomBen" placeholder="Prénom">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="pnomb" id="pnomb" formControlName="prenomBen" placeholder="Prénom">
         <label for="pnomb" style="width: 100% !important;">Prénom</label>
       </div>
       <div class="field">
-        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="nomb" formControlName="nomBen" placeholder="Nom">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="telb" id="nomb" formControlName="nomBen" placeholder="Nom">
         <label for="nomb" style="width: 100% !important;">Nom</label>
       </div>
       <div class="field">
-        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telb" formControlName="telBen" placeholder="Téléphone">
+        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="telb" id="telb" formControlName="telBen" placeholder="Téléphone">
         <label for="telb" style="width: 100% !important;">Téléphone</label>
       </div>
 

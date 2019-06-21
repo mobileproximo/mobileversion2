@@ -148,7 +148,11 @@ private motifs;
       'Autres investissements',
       'Epargne, tontine',
       'Evènements familiaux/religieux',
-      'Autres']
+      'Autres'];
+
+      if (this.dataenvoi.oper === '0052') {
+        this.envoiForm.controls.idville.setValue(1);
+        }
   }
 
 

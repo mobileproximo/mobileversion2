@@ -17,12 +17,13 @@ import {ServiceProvider} from "../providers/service/service";
 import {OneSignal} from "@ionic-native/onesignal";
 import {MessageComponent} from "../components/message/message";
 import {PubliciteComponent} from "../components/publicite/publicite";
+import { ProxicashPage } from '../pages/transfert/proxicash/proxicash';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ConnexionPage;
+  rootPage:any = ProxicashPage;
   private pages:any;
   @ViewChild(Nav) nav: Nav;
 
@@ -42,7 +43,7 @@ export class MyApp {
 
     platform.ready().then(() => {
       statusBar.styleDefault();
-   
+
       this.splashScreen.hide();
 
       this.checkNetwork();

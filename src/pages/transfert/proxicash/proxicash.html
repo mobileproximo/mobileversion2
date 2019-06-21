@@ -19,7 +19,7 @@
             </ion-select>
           </ion-item>
         </div>
-        <envoi *ngIf="service=='Envoi' && afficheenv" [dataenvoi]="dataenvoi"></envoi>
+        <envoi *ngIf="service=='Envoi'" [dataenvoi]="dataenvoi"></envoi>
         <reception *ngIf="service=='Réception'" [datareception]="datareception"></reception>
       </div>
       <div *ngIf="glb.showRecu">
