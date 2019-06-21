@@ -38,7 +38,7 @@ public motifs;
       prenomBen:['',Validators.required],
       nomBen:['',Validators.required],
       telBen:['',Validators.required],
-      indicatif:['',Validators.required],
+      indicatif:[''],
       idville:['',Validators.required]
     })
 

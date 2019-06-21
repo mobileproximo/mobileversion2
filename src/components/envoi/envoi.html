@@ -34,11 +34,11 @@
     <fieldset>
       <legend>Info expediteur</legend>
       <div class="field">
-        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="prenomExp" id="pnom" placeholder="Prénom">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="pnom" formControlName="prenomExp" id="pnom" placeholder="Prénom">
         <label for="pnom" style="width: 100% !important;">Prénom</label>
       </div>
       <div class="field">
-        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="nomExp" id="nom" placeholder="Nom">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="nom" formControlName="nomExp" id="nom" placeholder="Nom">
         <label for="nom" style="width: 100% !important;">Nom</label>
       </div>
 
@@ -70,11 +70,11 @@
 
       </div>
       <div class="field">
-        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="adresse" placeholder="Adresse">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="adresse" formControlName="adrsExp" id="adresse" placeholder="Adresse">
         <label for="adresse" style="width: 100% !important;">Adresse</label>
       </div>
       <div class="field" *ngIf="dataenvoi.oper!='0080'">
-        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="tel"  formControlName="telExp" placeholder="Téléphone">
+        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="tel" id="tel"  formControlName="telExp" placeholder="Téléphone">
         <label for="tel" style="width: 100% !important;">Téléphone</label>
       </div>
       <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
@@ -116,7 +116,7 @@
         <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="telb" id="telb" formControlName="telBen" placeholder="Téléphone">
         <label for="telb" style="width: 100% !important;">Téléphone</label>
       </div>
-{{envoiForm.getRawValue()|json}}
+
       <div class="p-button-group">
         <button (click)="validerEnvoi()" [disabled]="envoiForm.invalid" class="p-btn p-btn-vert button button-small right-buttons">
           envoyer
