@@ -20,8 +20,8 @@ import {PaysProvider} from "../../providers/pays/pays";
 })
 export class EnvoiComponent  implements OnInit{
 @Input('dataenvoi') dataenvoi;
-private envoiForm :FormGroup;
-private motifs;
+public envoiForm :FormGroup;
+public motifs;
 
 
   constructor(public paysServ:PaysProvider,public formdate:FormatdatePipe,public formatcode:FormatCodeTransfertPipe,public number:MillierPipe,public envServ:ServiceProvider,public formBuilder :FormBuilder,public glb:GlobalvariableProvider) {
