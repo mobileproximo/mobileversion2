@@ -57,7 +57,7 @@ export class ServiceProvider {
       console.log(url);
       console.log(body);
       this.http.setDataSerializer("json");
-      this.http.setRequestTimeout(30);
+      this.http.setRequestTimeout(90);
       this.http.setSSLCertMode("nocheck");
       return this.http.post(url, body, headers);
     }
