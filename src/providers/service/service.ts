@@ -8,6 +8,7 @@ import {MillierPipe} from "../../pipes/millier/millier";
 import {el} from "@angular/platform-browser/testing/src/browser_util";
 import {ImprimantePage} from "../../pages/imprimante/imprimante";
 import {Toast} from "@ionic-native/toast";
+import { ConnexionPage } from '../../pages/connexion/connexion';
 
 /*
   Generated class for the ServiceProvider provider.
@@ -183,6 +184,12 @@ export class ServiceProvider {
       buttons: ['OK']
     });
     alert.present();
+    if(message === "Session expiree. Veuillez vous reconnecter!")
+    {
+      let nav = this.app.getActiveNav();
+      nav.setRoot(ConnexionPage)
+     // $state.go('login');
+    }
   }
   showdetails(contenu:string){
     let alert = this.alertCtrl.create({
